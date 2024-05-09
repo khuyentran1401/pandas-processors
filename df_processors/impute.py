@@ -2,7 +2,8 @@ from abc import ABC, abstractmethod
 from typing import Literal
 
 import pandas as pd
-from _utils import check_category_columns, check_numerical_columns
+
+from df_processors._utils import check_category_columns, check_numerical_columns
 
 
 class DataFrameImputer(ABC):
@@ -60,7 +61,7 @@ class MeanMedianImputer(DataFrameImputer):
     Examples
     --------
     >>> import pandas as pd
-    >>> from src.process_data import MeanMedianImputer
+    >>> from df_processors.impute import MeanMedianImputer
     >>> df = pd.DataFrame({'A': [1, 2, None], 'B': [4, None, 6]})
     >>> imputer = MeanMedianImputer(columns=['A', 'B'], imputation_method='mean')
     >>> imputed_df = imputer.impute(df)
@@ -132,7 +133,7 @@ class ConstantImputer(DataFrameImputer):
     Examples
     --------
     >>> import pandas as pd
-    >>> from src.process_data import ConstantImputer
+    >>> from df_processors.impute import ConstantImputer
     >>> df = pd.DataFrame({'A': [1, 2, None], 'B': [4, None, 6]})
     >>> imputer = ConstantImputer(columns=['A', 'B'], value=0)
     >>> imputed_df = imputer.impute(df)
@@ -191,7 +192,7 @@ class CategoryImputer(DataFrameImputer):
     Examples
     --------
     >>> import pandas as pd
-    >>> from src.process_data import CategoryImputer
+    >>> from df_processors.impute import CategoryImputer
     >>> df = pd.DataFrame({'A': ['a', 'b', None], 'B': ['x', None, 'z']})
     >>> imputer = CategoryImputer(columns=['A', 'B'], imputation_method='missing', fill_value='Missing')
     >>> imputed_df = imputer.impute(df)
@@ -263,7 +264,7 @@ def impute_data(df: pd.DataFrame, imputers: list[DataFrameImputer]) -> pd.DataFr
     Examples
     --------
     >>> import pandas as pd
-    >>> from src.process_data import MeanMedianImputer, ConstantImputer, CategoryImputer
+    >>> from df_processors.impute import MeanMedianImputer, ConstantImputer, CategoryImputer
     >>> df = pd.DataFrame({
     ...     'A': [1, 2, None, 4],
     ...     'B': [5, None, 7, 8],
