@@ -23,7 +23,7 @@ class SkewedFeatureNormalizer(BaseEstimator, TransformerMixin, OneToOneFeatureMi
 
     >>> import pandas as pd
     >>> import numpy as np
-    >>> from df_processors.normalize import SkewedFeatureNormalizer
+    >>> from pandas_processors.normalize import SkewedFeatureNormalizer
     >>> # Set the seed value
     >>> np.random.seed(123)
     >>> # Create a sample DataFrame with skewed features

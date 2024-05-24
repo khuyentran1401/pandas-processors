@@ -27,7 +27,7 @@ class SumFeatures(BaseEstimator, TransformerMixin, OneToOneFeatureMixin):
     --------
 
     >>> import pandas as pd
-    >>> from df_processors.create import SumFeatures
+    >>> from pandas_processors.create import SumFeatures
     >>> X = pd.DataFrame({"col1": [1, 2, 3], "col2": [1, 1, 1], "col3": [2, 2, 2]})
     >>> sum_feature = SumFeatures(
     ...             features=["col1", "col2", "col3"],
@@ -138,7 +138,7 @@ class ConditionalFeatures(BaseEstimator, TransformerMixin, OneToOneFeatureMixin)
     --------
 
     >>> import pandas as pd
-    >>> from df_processors.create import ConditionalFeatures
+    >>> from pandas_processors.create import ConditionalFeatures
     >>> X = pd.DataFrame({"col1": [-1, 2, 3], "col2": [4, -5, 6]})
     >>> # Use ConditionalFeatures with one feature
     >>> conditional_feature = ConditionalFeatures(
