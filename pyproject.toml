@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "pandas-processors"
 version = "0.1.0"
-description = ""
+description = "A Python library that provides utilities to process your pandas DataFrame."
 authors = ["khuyentran1401 <khuyentran1476@gmail.com>"]
+repository = "https://github.com/khuyentran1401/pandas-processors.git"
 readme = "README.md"
 
 [tool.poetry.dependencies]
