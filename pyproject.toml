@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pandas-processors"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python library that provides utilities to process your pandas DataFrame."
 authors = ["khuyentran1401 <khuyentran1476@gmail.com>"]
 repository = "https://github.com/khuyentran1401/pandas-processors.git"
@@ -16,6 +16,7 @@ scipy = "^1.13.0"
 pre-commit = "^3.7.0"
 mypy = "^1.10.0"
 pandas-stubs = "^2.2.2.240514"
+pdoc3 = "^0.10.0"
 
 [build-system]
 requires = ["poetry-core"]

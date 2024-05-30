@@ -247,50 +247,6 @@ class CategoryImputer(DataFrameImputer):
         return df
 
 
-def impute_data(df: pd.DataFrame, imputers: list[DataFrameImputer]) -> pd.DataFrame:
-    """
-    Impute missing values in a DataFrame using multiple imputation strategies.
-
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        The DataFrame to impute.
-    imputers : list of DataFrameImputer
-        A list of imputer objects implementing the `impute` method.
-
-    Returns
-    -------
-    pandas.DataFrame
-        The DataFrame with missing values imputed.
-
-    Examples
-    --------
-    >>> import pandas as pd
-    >>> from pandas_processors.impute import MeanMedianImputer, ConstantImputer, CategoryImputer
-    >>> df = pd.DataFrame({
-    ...     'A': [1, 2, None, 4],
-    ...     'B': [5, None, 7, 8],
-    ...     'C': ['a', None, 'c', 'd'],
-    ...     'D': [None, 'e', 'f', None]
-    ... })
-    >>> mean_imputer = MeanMedianImputer(columns=['A', 'B'], imputation_method='mean')
-    >>> constant_imputer = ConstantImputer(columns=['C'], value='Missing')
-    >>> category_imputer = CategoryImputer(columns=['D'], imputation_method='mode', fill_value='Unknown')
-    >>> imputers = [mean_imputer, constant_imputer, category_imputer]
-    >>> imputed_df = impute_data(df, imputers)
-    >>> imputed_df
-              A         B        C  D
-    0  1.000000  5.000000        a  e
-    1  2.000000  6.666667  Missing  e
-    2  2.333333  7.000000        c  f
-    3  4.000000  8.000000        d  e
-    """
-    for imputer in imputers:
-        df = imputer.impute(df)
-
-    return df
-
-
 if __name__ == "__main__":
     import doctest
 
