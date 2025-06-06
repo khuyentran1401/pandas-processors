@@ -1,33 +1,25 @@
-[tool.poetry]
+[project]
 name = "pandas-processors"
-version = "0.1.2"
-description = "A Python library that provides utilities to process your pandas DataFrame."
-authors = ["khuyentran1401 <khuyentran1476@gmail.com>"]
-repository = "https://github.com/khuyentran1401/pandas-processors.git"
+version = "0.1.3"
+description = "Add your description here"
 readme = "README.md"
-documentation = "https://khuyentran1401.github.io/pandas-processors/"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.3.0",
+    "scikit-learn>=1.7.0",
+    "scipy>=1.15.3",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-pandas = "^2.2.2"
-scikit-learn = "^1.4.2"
-scipy = "^1.13.0"
-
-[tool.poetry.group.dev.dependencies]
-pre-commit = "^3.7.0"
-mypy = "^1.10.0"
-pandas-stubs = "^2.2.2.240514"
-pdoc3 = "^0.10.0"
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
-ignore = ["E501"]
-select = ["B", "C", "E", "F", "W", "B9", "I", "Q"]
-
-# Exclude a variety of commonly ignored directories.
 exclude = [
     ".bzr",
     ".direnv",
@@ -55,8 +47,14 @@ exclude = [
 # Same as Black.
 line-length = 88
 
-[tool.ruff.mccabe]
-max-complexity = 10
+[tool.ruff.lint]
+ignore = ["E501", "F841", "B018", "E101", "W191"]
+select = ["B", "C", "E", "F", "W", "B9", "I", "Q"]
 
-[tool.mypy]
-ignore_missing_imports = true
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
